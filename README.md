@@ -21,8 +21,6 @@ Arpeggios
 
 ## How to build this app
 
-Install my-project with npm
-
 ```bash
 go build -o goviolin .
 ```
@@ -30,6 +28,7 @@ This will produce an artifiact called goviolin then to run it
 ```bash
 ./goviolin
 ```
+![image](https://github.com/ahmedelmelegy/GoViolin/assets/62904201/70624f26-1127-4e42-bc61-9b9772c226c2)
 Open brower and write localhost:8080 and the app will show
 ## Dockerize application
 ### Single-Stage Dockerfile
@@ -69,4 +68,5 @@ CMD ["./goviolin"]
 ```
 What we benifted from that?
 The size of the image is greatly reduced
-![image](https://github.com/ahmedelmelegy/GoViolin/assets/62904201/70624f26-1127-4e42-bc61-9b9772c226c2)
+![Screenshot 2023-06-06 211947](https://github.com/ahmedelmelegy/GoViolin/assets/62904201/9e73942e-2e5c-4b76-8b07-056c893d9bb6)
+Now it is less than 0.25 GB
