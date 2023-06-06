@@ -29,7 +29,7 @@ This will produce an artifiact called goviolin then to run it
 ```bash
 ./goviolin
 ```
-![image](https://github.com/ahmedelmelegy/GoViolin/assets/62904201/70624f26-1127-4e42-bc61-9b9772c226c2)
+![image](https://github.com/ahmedelmelegy/GoViolin/assets/62904201/5db629ec-02ca-4d61-bc47-557200030ab5)
 ## Dockerize application
 ### Single-Stage Dockerfile
 
@@ -40,7 +40,8 @@ WORKDIR /app
 
 COPY . . RUN go mod init RUN go build -o goviolin .
 
-EXPOSE 8080 CMD ["./goviolin"]
+EXPOSE 5000
+CMD ["./goviolin"]
 ```
 To build image
 ```bash
@@ -67,7 +68,7 @@ WORKDIR /app
 
 COPY --from=build-stage /app .
 
-EXPOSE 8080 
+EXPOSE 5000 
 CMD ["./goviolin"]
 ```
 To build image
@@ -81,7 +82,7 @@ Now it is less than 0.25 GB!
 
 To run container with the built image, we will map port 8080 from host to port 8080 in the container
 ```bash
-docker run -p 8080:8080 goviolin-multistage
+docker run -p 5000:5000 goviolin-multistage
 ```
 ### Scan Docker image using Trivy
 Trivy is used for CVE Common Vulnerabilities and Exposures
