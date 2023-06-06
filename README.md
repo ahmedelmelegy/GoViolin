@@ -29,5 +29,23 @@ After I ran this image
 ![image](https://github.com/ahmedelmelegy/GoViolin/assets/62904201/70624f26-1127-4e42-bc61-9b9772c226c2)
 
 ## built multi-stage docker image to reduce size
-![image](https://github.com/ahmedelmelegy/GoViolin/assets/62904201/aa107842-789f-41e6-8245-e63bf6de4845)
+FROM golang:1.19 AS build-stage
+
+WORKDIR /app
+
+COPY . .
+
+RUN go mod init
+RUN GOOS=linux go build -o goviolin .
+
+# Deploy the application binary into a lean image
+FROM gcr.io/distroless/base-debian11 AS build-release-stage
+
+WORKDIR /app
+
+COPY --from=build-stage /app .
+
+EXPOSE 8080 
+CMD ["./goviolin"]
+![image](https://github.com/ahmedelmelegy/GoViolin/assets/62904201/30fe4bd6-948c-4726-8903-4a16876b215d)
 
