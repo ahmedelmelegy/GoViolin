@@ -29,7 +29,6 @@ This will produce an artifiact called goviolin then to run it
 ./goviolin
 ```
 ![image](https://github.com/ahmedelmelegy/GoViolin/assets/62904201/70624f26-1127-4e42-bc61-9b9772c226c2)
-Open brower and write localhost:8080 and the app will show
 ## Dockerize application
 ### Single-Stage Dockerfile
 
