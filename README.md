@@ -11,3 +11,9 @@ Contains:
 * Harmonic and Melodic Minor scales
 * Arpeggios
 * A set of two part scale duet melodies by Franz Wohlfahrt
+# built singlestage docker image
+docker build . -t goviolin
+![image](https://github.com/ahmedelmelegy/GoViolin/assets/62904201/e70dbe74-c844-4490-987d-0f5d43591adf)
+But as you can see the size of the image is very big
+after I ran this image
+![image](https://github.com/ahmedelmelegy/GoViolin/assets/62904201/70624f26-1127-4e42-bc61-9b9772c226c2)
