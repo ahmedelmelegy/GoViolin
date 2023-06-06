@@ -77,3 +77,7 @@ What we benifted from that?
 The size of the image is greatly reduced
 ![Screenshot 2023-06-06 211947](https://github.com/ahmedelmelegy/GoViolin/assets/62904201/9e73942e-2e5c-4b76-8b07-056c893d9bb6)
 Now it is less than 0.25 GB!
+To run container with the built image, we will map port 8080 from host to port 8080 in the container
+```bash
+docker run -p 8080:8080 goviolin-multistage
+```
