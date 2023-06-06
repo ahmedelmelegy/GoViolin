@@ -27,3 +27,7 @@ But as you can see the size of the image is very big
 
 After I ran this image
 ![image](https://github.com/ahmedelmelegy/GoViolin/assets/62904201/70624f26-1127-4e42-bc61-9b9772c226c2)
+
+## built multi-stage docker image to reduce size
+![image](https://github.com/ahmedelmelegy/GoViolin/assets/62904201/aa107842-789f-41e6-8245-e63bf6de4845)
+
