@@ -41,6 +41,10 @@ COPY . . RUN go mod init RUN go build -o goviolin .
 
 EXPOSE 8080 CMD ["./goviolin"]
 ```
+To build image
+```bash
+docker build . -t goviolin-multistage
+```
 ![image](https://github.com/ahmedelmelegy/GoViolin/assets/62904201/e70dbe74-c844-4490-987d-0f5d43591adf)
 The size of the image is more than 1 GB!!!
 ### Multi-Stage Dockerfile
@@ -65,7 +69,11 @@ COPY --from=build-stage /app .
 EXPOSE 8080 
 CMD ["./goviolin"]
 ```
+To build image
+```bash
+docker build . -t goviolin-multistage
+```
 What we benifted from that?
 The size of the image is greatly reduced
 ![Screenshot 2023-06-06 211947](https://github.com/ahmedelmelegy/GoViolin/assets/62904201/9e73942e-2e5c-4b76-8b07-056c893d9bb6)
-Now it is less than 0.25 GB
+Now it is less than 0.25 GB!
