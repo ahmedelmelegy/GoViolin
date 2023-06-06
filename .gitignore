@@ -1,5 +1,5 @@
 # Compiled Source #
 ###################
-
-*.exe
-GoViolin
+goviolin
+README.md
+Procfile

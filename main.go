@@ -55,6 +55,7 @@ func main() {
 	http.HandleFunc("/scaleshow", ScaleShow)
 	http.HandleFunc("/duets", Duets)
 	http.HandleFunc("/duetshow", DuetShow)
+	
 	http.ListenAndServe(getPort(), nil)
 
 }
