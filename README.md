@@ -16,6 +16,7 @@ Arpeggios
 ## Prerequistis
 
 - Docker
+- Trivy (to scan docker image common vulnerabilities)
 - Jenkins
 - Minikube
 
@@ -82,3 +83,9 @@ To run container with the built image, we will map port 8080 from host to port 8
 ```bash
 docker run -p 8080:8080 goviolin-multistage
 ```
+### Scan Docker image using Trivy
+Trivy is used for CVE Common Vulnerabilities and Exposures
+```bash
+trivy image goviolin-multistage
+```
+![image](https://github.com/ahmedelmelegy/GoViolin/assets/62904201/d1a66e59-3a67-4c5c-814c-8799fb68e5b7)
