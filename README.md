@@ -15,7 +15,7 @@ Arpeggios
 
 ## Prerequistis
 
-- Install Docker
+- Docker
 - Jenkins
 - Minikube
 
