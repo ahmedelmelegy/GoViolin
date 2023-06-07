@@ -1,10 +1,9 @@
 # GoViolin
 
-GoViolin is a web app written in Go that is dockerized, automated using jenkins and deployed in minikube that helps with violin practice.
+GoViolin is a web app written in Go that helps with violin practice that is dockerized, automated using jenkins and deployed in minikube.
 GoViolin allows practice over both 1 and 2 octaves.
 
 Contains:
-
 - Major Scales
 - Harmonic and Melodic Minor scales
 Arpeggios
