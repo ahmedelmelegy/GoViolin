@@ -44,7 +44,7 @@ CMD ["./goviolin"]
 ```
 To build image
 ```bash
-docker build . -t goviolin-multistage
+docker build . -t goviolin
 ```
 ![image](https://github.com/ahmedelmelegy/GoViolin/assets/62904201/e70dbe74-c844-4490-987d-0f5d43591adf)
 The size of the image is more than 1 GB!!!
