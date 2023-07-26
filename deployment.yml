@@ -26,13 +26,6 @@ spec:
           limits:
             memory: "128Mi"
             cpu: "500m"
-        securityContext:
-          allowPrivilegeEscalation: false
-          runAsNonRoot: true
-          capabilities:
-            drop:
-              - ALL
-          readOnlyRootFilesystem: true
         ports:
         - containerPort: 5000
         env:
