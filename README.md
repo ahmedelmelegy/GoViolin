@@ -81,7 +81,7 @@ Now it is less than 0.25 GB!
 
 To run container with the built image, we will map port 5000 from host to port 5000 in the container
 ```bash
-docker run -p 5000:5000 goviolin-multistage
+docker run -p 5000:5000 -d --rm goviolin-multistage
 ```
 ### Makefile
 To automate building and running container
