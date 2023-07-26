@@ -89,3 +89,29 @@ Trivy is used for CVE Common Vulnerabilities and Exposures
 trivy image goviolin-multistage
 ```
 ![image](https://github.com/ahmedelmelegy/GoViolin/assets/62904201/d1a66e59-3a67-4c5c-814c-8799fb68e5b7)
+
+## deploy app on kubernetes cluster
+### minkube
+``` bash
+minikube start
+```
+Create development namespace
+``` bash
+kubectl apply -f namespace.yml
+```
+![Screenshot from 2023-07-26 08-43-25](https://github.com/ahmedelmelegy/GoViolin/assets/62904201/55e1b7ec-dd34-40b8-b129-2411f7af3992)
+create deployment with 3 replicas
+```bash
+kubectl apply -f deployment.yml
+```
+![image](https://github.com/ahmedelmelegy/GoViolin/assets/62904201/e9bf3254-814b-4bd7-9494-c629ba32b4d0)
+Create loadbalancer service
+```bash
+kubectl apply -f service.yml
+```
+![image](https://github.com/ahmedelmelegy/GoViolin/assets/62904201/b7ee3ba8-ecc7-4130-85fd-6f82b1b036f9)
+To access the deployed app in minikube and It will open it directly on the browser
+```bash
+minikube service demo-service
+```
+![image](https://github.com/ahmedelmelegy/GoViolin/assets/62904201/4cdd9c53-dbb5-4fc0-822b-1cba5aea5362)
