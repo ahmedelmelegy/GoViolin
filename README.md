@@ -83,6 +83,10 @@ To run container with the built image, we will map port 5000 from host to port 5
 ```bash
 docker run -p 5000:5000 goviolin-multistage
 ```
+To automate build and run container, I made Makefile
+```bash
+make
+```
 ### Scan Docker image using Trivy
 Trivy is used for CVE Common Vulnerabilities and Exposures
 ```bash
