@@ -88,6 +88,10 @@ To automate building and running container
 ```bash
 make
 ```
+To stop running container
+```bash
+make stop_website
+```
 ### Scan Docker image using Trivy
 Trivy is used for CVE Common Vulnerabilities and Exposures
 ```bash
