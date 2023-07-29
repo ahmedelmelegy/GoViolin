@@ -51,7 +51,7 @@ WORKDIR /app
 
 COPY . . RUN go mod init RUN go build -o goviolin .
 
-EXPOSE 5000
+EXPOSE 8080
 CMD ["./goviolin"]
 ```
 To build image
@@ -79,7 +79,7 @@ WORKDIR /app
 
 COPY --from=build-stage /app .
 
-EXPOSE 5000 
+EXPOSE 8080 
 CMD ["./goviolin"]
 ```
 To build image
@@ -93,7 +93,7 @@ Now it is less than 0.25 GB!
 
 To run container with the built image, we will map port 5000 from host to port 5000 in the container
 ```bash
-docker run -p 5000:5000 -d --rm goviolin-multistage
+docker run --name goviolin -p 8080:8080 -d --rm goviolin-multistage
 ```
 ### Makefile
 To automate building and running container
