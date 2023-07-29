@@ -3,21 +3,33 @@
 GoViolin is a web app written in Go that helps with violin practice that is dockerized, automated using jenkins and deployed in minikube.
 GoViolin allows practice over both 1 and 2 octaves.
 
-Contains:
+## Contents:
 - Major Scales
 - Harmonic and Melodic Minor scales
 Arpeggios
 - A set of two part scale duet melodies by Franz Wohlfahrt
 - Dockerfile
+- Makefile
 - Jenkinsfile
 - kubernetes files
+- Helm Charts
 
 ## Prerequistis
 
 - Docker
 - Trivy (to scan docker image common vulnerabilities)
 - Jenkins
-- Minikube
+- Kind
+- Helm
+
+## Objectives
+
+- Create Dockerfile
+- Create Jenkinsfile
+- kubernetes manifests
+- Create local-registery for images
+- Connect Kind cluster with local-registry
+- Deploy helm charts
 
 ## How to build this app
 
