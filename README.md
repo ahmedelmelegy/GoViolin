@@ -8,7 +8,7 @@ GoViolin allows practice over both 1 and 2 octaves.
 - Harmonic and Melodic Minor scales
 Arpeggios
 - A set of two part scale duet melodies by Franz Wohlfahrt
-- Dockerfile
+- Dockerfile multi-stage
 - Makefile
 - Jenkinsfile
 - kubernetes files
