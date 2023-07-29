@@ -15,5 +15,5 @@ WORKDIR /app
 
 COPY --from=build-stage /app .
 
-EXPOSE 5000 
+EXPOSE 8080 
 CMD ["./goviolin"]

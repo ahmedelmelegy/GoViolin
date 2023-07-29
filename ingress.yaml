@@ -12,7 +12,7 @@ spec:
           service:
             name: go-violin-service
             port:
-              number: 80
+              number: 5000
         path: /
         pathType: Prefix
 status:

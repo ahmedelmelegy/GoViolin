@@ -3,7 +3,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: go-violin-deployment
-  namespace: development
   labels:
     app: go-violin
 spec:
@@ -18,7 +17,9 @@ spec:
     spec:
       containers:
       - name: go-violin-container
-        image: ahmedelmelegy3570/goviolin-multistage
+        image: localhost:5000/goviolin
+        ports:
+        - containerPort: 8080
         resources:
           requests:
             memory: "64Mi"
@@ -26,18 +27,3 @@ spec:
           limits:
             memory: "128Mi"
             cpu: "500m"
-        ports:
-        - containerPort: 5000
-        env:
-          - name: POD_NAME
-            valueFrom:
-              fieldRef:
-                fieldPath: metadata.name
-          - name: POD_NAMESPACE
-            valueFrom:
-              fieldRef:
-                fieldPath: metadata.namespace
-          - name: POD_IP
-            valueFrom:
-              fieldRef:
-                fieldPath: status.podIP
