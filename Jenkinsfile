@@ -2,7 +2,9 @@ pipeline {
   agent any
   tools {
     go 'go-1.21.4'
-    SonarScanner 'SonarScanner'
+  }
+  environment {
+      scannerTool = 'SonarScanner' // Define the SonarScanner tool separately
   }
   stages {
     stage('Checkout') {
