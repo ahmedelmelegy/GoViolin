@@ -1,5 +1,8 @@
 pipeline {
   agent any
+  tools {
+    go 'go-1.21.4'
+  }
   stages {
     stage('Checkout') {
       steps {
@@ -17,21 +20,13 @@ pipeline {
 
     stage('SonarQube Analysis') {
       steps {
-        withSonarQubeEnv('SonarScanner') {
+        withSonarQubeEnv(installationName: 'sonarQube instance', credentialsId: 'SonarQube') {
           sh 'sonar-scanner'
         }
 
       }
     }
 
-    stage('sonar') {
-      steps {
-        withSonarQubeEnv(installationName: 'sonarQube instance', credentialsId: 'SonarQube')
-      }
-    }
 
-  }
-  tools {
-    go 'go-1.21.4'
   }
 }
