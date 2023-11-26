@@ -9,12 +9,6 @@ pipeline {
     }
 
     stage('build app') {
-      post {
-        always {
-          junit(allowEmptyResults: true, testResults: 'target/surefire-reports/*.xml')
-        }
-
-      }
       steps {
         sh '''go mod init
 go build -o goviolin .'''
