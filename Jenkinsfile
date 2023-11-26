@@ -2,7 +2,6 @@ pipeline {
     agent any
     tools {
         go 'go-1.21.4'
-        sonarqube 'SonarScanner'
     }
   
     stages {
@@ -22,7 +21,8 @@ pipeline {
 
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv('sonarQube instance') {
+                // Utilize the configured SonarQube Scanner tool directly in the step
+                withSonarQubeEnv('SonarScanner') {
                     sh 'sonar-scanner'
                 }
             }
