@@ -1,4 +1,7 @@
 pipeline {
+  tools{
+    go 'go-1.21.4'
+  }
   agent any
   stages {
     stage('Checkout') {
@@ -10,6 +13,7 @@ pipeline {
 
     stage('build app') {
       steps {
+        sh 'go mod init'
         sh 'go build -o goviolin .'
       }
     }
