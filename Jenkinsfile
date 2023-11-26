@@ -16,7 +16,8 @@ pipeline {
 
       }
       steps {
-        sh 'go build -o goviolin .'
+        sh '''go mod init
+go build -o goviolin .'''
       }
     }
 
