@@ -14,15 +14,5 @@ pipeline {
       }
     }
 
-    stage('build image') {
-      steps {
-        sh '''
-                docker build . -t goviolin-multistage
-                docker images -a
-                
-            '''
-      }
-    }
-
   }
 }
