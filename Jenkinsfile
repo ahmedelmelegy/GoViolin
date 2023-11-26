@@ -2,7 +2,7 @@ pipeline {
     agent any
     tools {
         go 'go-1.21.4'
-        sonarRunner 'SonarScanner'
+        sonarScanner 'SonarScanner'
     }
   
     stages {
