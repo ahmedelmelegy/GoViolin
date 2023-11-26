@@ -2,6 +2,7 @@ pipeline {
     agent any
     tools {
         go 'go-1.21.4'
+        sonarqube 'SonarScanner'
     }
   
     stages {
@@ -21,13 +22,8 @@ pipeline {
 
         stage('SonarQube Analysis') {
             steps {
-                // Checkout the code from source control
-                checkout scm
-
-                // Run SonarQube analysis
-                def scannerHome = tool 'SonarScanner'
-                withSonarQubeEnv {
-                    sh "${scannerHome}/bin/sonar-scanner"
+                withSonarQubeEnv('SonarScanner') {
+                    sh 'sonar-scanner'
                 }
             }
         }
