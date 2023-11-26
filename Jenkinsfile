@@ -4,7 +4,7 @@ pipeline {
     go 'go-1.21.4'
   }
   environment {
-      scannerTool = 'sonar-scanner' // Define the SonarScanner tool separately
+      scannerTool = 'SonarScanner' // Define the SonarScanner tool separately
   }
   stages {
     stage('Checkout') {
