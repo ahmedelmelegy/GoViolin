@@ -13,6 +13,18 @@ pipeline {
         sh 'go build -o goviolin .'
       }
     }
+    stage('SonarQube Analysis') {
+        steps {
+            node {
+                // Checkout the code from source control
+                checkout scm
 
+                // Run SonarQube analysis
+                def scannerHome = tool 'SonarScanner'
+                withSonarQubeEnv {
+                    sh "${scannerHome}/bin/sonar-scanner"
+                }
+            }
+        }
   }
 }
