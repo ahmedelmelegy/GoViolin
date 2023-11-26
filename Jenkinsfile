@@ -23,11 +23,12 @@ pipeline {
 
     stage('SonarQube Analysis') {
       steps {
+        script {
                 def scannerHome = tool 'SonarScanner';
                 withSonarQubeEnv(installationName: 'sonarQube instance', credentialsId: 'SonarQube') {
                     sh "${scannerHome}/bin/sonar-scanner"
-        }
-
+                        }
+              }
       }
     }
 
