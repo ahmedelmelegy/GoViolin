@@ -20,7 +20,6 @@ pipeline {
         }
 
         stage('SonarQube Analysis') {
-            agent any
             steps {
                 // Checkout the code from source control
                 checkout scm
