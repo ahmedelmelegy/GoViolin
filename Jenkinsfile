@@ -1,11 +1,5 @@
 pipeline {
   agent any
-  tools {
-    go 'go-1.21.4'
-  }
-  environment {
-      scannerTool = 'SonarScanner' // Define the SonarScanner tool separately
-  }
   stages {
     stage('Checkout') {
       steps {
@@ -24,21 +18,35 @@ pipeline {
     stage('SonarQube Analysis') {
       steps {
         script {
-                def scannerHome = tool 'SonarScanner';
-                withSonarQubeEnv(installationName: 'sonarQube instance', credentialsId: 'SonarQube') {
-                    sh "${scannerHome}/bin/sonar-scanner"
-                        }
-              }
+          def scannerHome = tool 'SonarScanner';
+          withSonarQubeEnv(installationName: 'sonarQube instance', credentialsId: 'SonarQube') {
+            sh "${scannerHome}/bin/sonar-scanner"
           }
         }
-        stage("Quality Gate") {
-            steps {
-                timeout(time: 1, unit: 'HOURS') {
-                    // Parameter indicates whether to set pipeline to UNSTABLE if Quality Gate fails
-                    // true = set pipeline to UNSTABLE, false = don't
-                    waitForQualityGate abortPipeline: true
-                }
-            }
+
+      }
+    }
+
+    stage('Quality Gate') {
+      steps {
+        timeout(time: 1, unit: 'HOURS') {
+          waitForQualityGate(abortPipeline: true)
         }
+
+      }
+    }
+
+    stage('dependency-check') {
+      steps {
+        dependencyCheck 'dependency-check'
+      }
+    }
+
+  }
+  tools {
+    go 'go-1.21.4'
+  }
+  environment {
+    scannerTool = 'SonarScanner'
   }
 }
