@@ -38,9 +38,13 @@ pipeline {
 
     stage('dependency-check') {
       steps {
-        dependencyCheck 'dependency-check'
+        script {
+          def dependencyCheck = 'dependency-check' // Name of the Dependency-Check tool installation in Jenkins
+          sh "${tool name: dependencyCheck, type: 'org.jenkinsci.plugins.tools.ToolInstallation'} -f JSON -s ${WORKSPACE}/dependency-check-report -o ${WORKSPACE}/dependency-check-report.html -d ${WORKSPACE}/dependencies"
+        }
       }
     }
+  }
 
   }
   tools {
