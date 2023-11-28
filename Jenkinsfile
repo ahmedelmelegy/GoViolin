@@ -44,7 +44,7 @@ pipeline {
 
   }
   tools {
-    go 'go-1.21.4'
+    go 'go-1.16.15'
   }
   environment {
     scannerTool = 'SonarScanner'
