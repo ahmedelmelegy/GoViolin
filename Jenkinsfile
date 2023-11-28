@@ -35,14 +35,15 @@ pipeline {
 
       }
     }
+  stage('build image') {
+    steps {
+      sh 'docker build . -t goviolin-multistage'
+    }
+
 	stage('Vulnerability Scan - Docker Trivy') {
       steps {
         sh "bash trivy-docker-image-scan.sh"
       }
-    }
-  stage('build image') {
-    steps {
-      sh 'docker build . -t goviolin-multistage'
     }
   }
     // stage('dependency-check') {
