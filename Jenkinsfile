@@ -39,7 +39,11 @@ pipeline {
     stage('dependency-check') {
       steps {
         tool(name: 'dependency-check', type: 'dependency-check')
-        dependencyCheck(odcInstallation: 'dependency-check', additionalArguments: '--format HTML 	--nvdDatafeed https://services.nvd.nist.gov/rest/json/cves/2.0?cpeName=cpe:2.3:o:microsoft:windows_10:1607:*:*:*:*:*:*:* --nvdApiDelay 8000', skipOnUpstreamChange: true)
+        dependencyCheck(
+          odcInstallation: 'dependency-check', 
+          additionalArguments: '--format HTML --nvdApiDelay 8000', 
+          skipOnUpstreamChange: true
+          )
       }
     }
 
