@@ -5,7 +5,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN go mod init
+# RUN go mod init
 RUN GOOS=linux go build -o goviolin .
 
 # Multi-stage
