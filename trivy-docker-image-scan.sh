@@ -2,7 +2,7 @@
 
 echo $imageName #getting Image name from env variable
 
-docker run --rm -v /home/ahmed/Library/Cache:/root/.cache/ -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy:0.17.2 -q image --exit-code 0 --severity LOW,MEDIUM,HIGH --light $imageName
+docker run --rm -v /home/ahmed/Library/Cache:/root/.cache/ -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy:0.17.2 -q image --exit-code 0 --severity LOW,MEDIUM,HIGH --light $imageName > trivy_scan_results.txt
 docker run --rm -v /home/ahmed/Library/Cache:/root/.cache/ -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy:0.17.2 -q image --exit-code 0 --severity CRITICAL --light $imageName
 
     # Trivy scan result processing

@@ -43,6 +43,7 @@ pipeline {
 	stage('Vulnerability Scan - Docker Trivy') {
       steps {
         sh "bash trivy-docker-image-scan.sh "
+        archiveArtifacts artifacts: 'trivy_scan_results.txt', followSymlinks: false
       }
     }
     // stage('dependency-check') {
