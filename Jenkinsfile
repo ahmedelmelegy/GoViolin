@@ -37,10 +37,10 @@ pipeline {
     }
 
     stage('dependency-check') {
-        steps {
-            tool name: 'dependency-check', type: 'dependency-check'
-            dependencyCheck(odcInstallation: 'dependency-check', additionalArguments: '--format HTML')
-        }
+      steps {
+        tool(name: 'dependency-check', type: 'dependency-check')
+        dependencyCheck(odcInstallation: 'dependency-check', additionalArguments: '--format HTML', skipOnUpstreamChange: true)
+      }
     }
 
   }
