@@ -35,11 +35,14 @@ pipeline {
 
       }
     }
-
-    stage('dependency-check') {
+    stage('build image') {
       steps {
-        sh "go dependency-check:check"
+        sh 'docker build . -t goviolin-multistage'
       }
+    // stage('dependency-check') {
+    //   steps {
+    //     sh "go dependency-check:check"
+    //   }
     }
     
 
