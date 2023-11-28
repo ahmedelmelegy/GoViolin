@@ -39,7 +39,7 @@ pipeline {
     stage('dependency-check') {
       steps {
         tool(name: 'dependency-check', type: 'dependency-check')
-        dependencyCheck(odcInstallation: 'dependency-check', additionalArguments: '--format HTML', skipOnUpstreamChange: true)
+        dependencyCheck(odcInstallation: 'dependency-check', additionalArguments: '--format HTML --nvdApiDelay 8000', skipOnUpstreamChange: true)
       }
     }
 
