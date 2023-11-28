@@ -38,7 +38,7 @@ pipeline {
 
     stage('dependency-check') {
       steps {
-        dependencyCheck(odcInstallation: 'dependency-check', additionalArguments: '--format HTML')
+        dependencyCheck(additionalArguments: '--format HTML')
       }
     }
 
