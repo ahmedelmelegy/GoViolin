@@ -1,5 +1,4 @@
 #!/bin/bash
-#trivy-k8s-scan
 
 echo $imageName #getting Image name from env variable
 

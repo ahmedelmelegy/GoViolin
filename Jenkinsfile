@@ -35,6 +35,13 @@ pipeline {
 
       }
     }
+	stage('Vulnerability Scan - Docker') {
+      steps {
+      "Trivy Scan":{
+        sh "bash trivy-docker-image-scan.sh"
+      }
+      }
+    }
     stage('build image') {
       steps {
         sh 'docker build . -t goviolin-multistage'
@@ -52,5 +59,6 @@ pipeline {
   }
   environment {
     scannerTool = 'SonarScanner'
+    imageName = "ahmedelmelegy3570/goviolin-multistage:${GIT_COMMIT}"
   }
 }
