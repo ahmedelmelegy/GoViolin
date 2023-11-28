@@ -38,6 +38,7 @@ pipeline {
 
     stage('dependency-check') {
         steps {
+            tool name: 'dependency-check', type: 'dependency-check'
             dependencyCheck(odcInstallation: 'dependency-check', additionalArguments: '--format HTML')
         }
     }
@@ -45,7 +46,6 @@ pipeline {
   }
   tools {
     go 'go-1.21.4'
-    dependencyCheck 'dependency-check'
   }
   environment {
     scannerTool = 'SonarScanner'
