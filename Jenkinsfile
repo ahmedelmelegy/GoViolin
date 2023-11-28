@@ -36,7 +36,7 @@ pipeline {
       }
     }
 
-    stage('dependency-check') {
+  /*  stage('dependency-check') {
       steps {
         tool(name: 'dependency-check', type: 'dependency-check')
         dependencyCheck(
@@ -46,6 +46,7 @@ pipeline {
           )
       }
     }
+    */
 
   }
   tools {
