@@ -37,7 +37,7 @@ pipeline {
     }
   stage('build image') {
     steps {
-      sh 'docker build . -t goviolin-multistage'
+      sh 'docker build . -t ""$imageName""'
     }
   }
 	stage('Vulnerability Scan - Docker Trivy') {
