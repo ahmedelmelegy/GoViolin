@@ -30,23 +30,17 @@ pipeline {
     stage('Quality Gate') {
       steps {
         timeout(time: 1, unit: 'HOURS') {
-          waitForQualityGate(abortPipeline: true)
+          waitForQualityGate true
         }
 
       }
     }
 
-  /*  stage('dependency-check') {
+    stage('build image') {
       steps {
-        tool(name: 'dependency-check', type: 'dependency-check')
-        dependencyCheck(
-          odcInstallation: 'dependency-check', 
-          additionalArguments: '--format HTML --nvdApiDelay 8000', 
-          skipOnUpstreamChange: true
-          )
+        sh 'docker build . -t goviolin-multistage'
       }
     }
-    */
 
   }
   tools {
