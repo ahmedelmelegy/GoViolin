@@ -136,3 +136,6 @@ To access the deployed app in minikube and It will open it directly on the brows
 minikube service demo-service
 ```
 ![image](https://github.com/ahmedelmelegy/GoViolin/assets/62904201/4cdd9c53-dbb5-4fc0-822b-1cba5aea5362)
+'''bash
+docker run -d --name sonarqube -e SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true -p 9000:9000 sonarqube:latest
+'''
