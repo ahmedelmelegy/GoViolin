@@ -45,7 +45,7 @@ pipeline {
   stage('build image') {
     steps {
       // sh 'docker build . -t ""$imageName""'
-       buildPushtoHub([DockerCredentials: "DOCKERHUB",image: "${imageName}:${BUILD_NUMBER}"])
+       buildPushtoHub([DockerCredentials: "DOCKERHUB",image: "${imageName}:${BUILD_NUMBER}",context:"."])
     }
   }
 	stage('Vulnerability Scan - Docker Trivy') {
