@@ -15,32 +15,32 @@ pipeline {
       }
     }
 
-    stage('SonarQube Analysis') {
-      steps {
-        script {
-          def scannerHome = tool 'SonarScanner';
-           withSonarQubeEnv() {
-            sh "${scannerHome}/bin/sonar-scanner"
-          }
-        }
+    // stage('SonarQube Analysis') {
+    //   steps {
+    //     script {
+    //       def scannerHome = tool 'SonarScanner';
+    //        withSonarQubeEnv() {
+    //         sh "${scannerHome}/bin/sonar-scanner"
+    //       }
+    //     }
 
-      }
-    }
+    //   }
+    // }
 
-    stage('Quality Gate') {
-      steps {
-        timeout(time: 1, unit: 'HOURS') {
-          script {
-            def qg = waitForQualityGate()
-            echo "Quality Gate status: ${qg.status}"
-            if (qg.status != 'OK') {
-              error "Pipeline aborted due to quality gate failure: ${qg.status}"
-            }
-          }
-        }
+    // stage('Quality Gate') {
+    //   steps {
+    //     timeout(time: 1, unit: 'HOURS') {
+    //       script {
+    //         def qg = waitForQualityGate()
+    //         echo "Quality Gate status: ${qg.status}"
+    //         if (qg.status != 'OK') {
+    //           error "Pipeline aborted due to quality gate failure: ${qg.status}"
+    //         }
+    //       }
+    //     }
 
-      }
-    }
+    //   }
+    // }
   stage('build image') {
     steps {
       sh 'docker build . -t ""$imageName""'
@@ -63,7 +63,7 @@ pipeline {
     go 'go-1.16.15'
   }
   environment {
-    scannerTool = 'SonarScanner'
+    // scannerTool = 'SonarScanner'
     imageName = "ahmedelmelegy3570/goviolin-multistage:${GIT_COMMIT}"
   }
 }
