@@ -1,3 +1,4 @@
+@library("shared-library") _
 pipeline {
   agent any
   stages {
@@ -43,7 +44,8 @@ pipeline {
     // }
   stage('build image') {
     steps {
-      sh 'docker build . -t ""$imageName""'
+      // sh 'docker build . -t ""$imageName""'
+       buildPushtoHub([DockerCredentials: "DOCKERHUB",image: "${imageName}:${BUILD_NUMBER}"])
     }
   }
 	stage('Vulnerability Scan - Docker Trivy') {
@@ -64,6 +66,6 @@ pipeline {
   }
   environment {
     // scannerTool = 'SonarScanner'
-    imageName = "ahmedelmelegy3570/goviolin-multistage:${GIT_COMMIT}"
+    imageName = "ahmedelmelegy3570/goviolin-multistage"
   }
 }
