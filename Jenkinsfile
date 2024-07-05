@@ -10,7 +10,7 @@ pipeline {
 
     stage('build app') {
       steps {
-        sh 'go mod init'
+        // sh 'go mod init'
         sh 'go build -o goviolin .'
       }
     }
